@@ -1,0 +1,42 @@
+<ion-content>
+  <div class="login-logo">
+    <img class="logo-img" src="assets/imgs/logo.png" />
+  </div>
+
+  <form #loginForm="ngForm" novalidate class="login-form">
+    <ion-list no-lines>
+      <div>
+        <ion-label stacked class="form-label">Email Address</ion-label>
+        <div class="input-icon-wrap">
+          <ion-input [(ngModel)]="login.username" placeholder="Fill in username" name="username" type="email" #username="ngModel" class="form-input"
+            spellcheck="false" autocapitalize="off" required>
+          </ion-input>
+          <span class="input-icon" *ngIf="username.valid">
+            <span class="fal fa-check-circle valid-input-icon"></span>
+          </span>
+        </div>
+      </div>
+
+      <ion-label stacked class="form-label">Password</ion-label>
+      <div class="input-icon-wrap">
+        <ion-input [(ngModel)]="login.password" placeholder="Fill in password" name="password" type="password" #password="ngModel"
+          class="form-input" required>
+        </ion-input>
+        <span class="input-icon" *ngIf="password.valid">
+          <span class="fal fa-check-circle  valid-input-icon"></span>
+        </span>
+      </div>
+    </ion-list>
+    <div>
+      <ion-label *ngIf="haserror && ( !password.valid && !username.valid)" class="general-error-message">Invalid email or password.</ion-label>
+      <ion-row responsive-sm>
+        <ion-col>
+          <ion-label class="forgot-password" stacked>Forgot password?</ion-label>
+          <button ion-button [disabled]="!password.valid || !username.valid" (click)="onLogin(loginForm)" type="submit" block>Sign in</button>
+        </ion-col>
+
+      </ion-row>
+      <ion-label class="trouble-signing-in">Trouble signing in?</ion-label>
+    </div>
+  </form>
+</ion-content>
