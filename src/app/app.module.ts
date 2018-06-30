@@ -8,13 +8,15 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { UserProvider } from '../providers/user/user';
+import { FeedbackModalPage } from '../pages/feedback-modal/feedback-modal';
 import { MY_CONFIG_TOKEN, MY_CONFIG } from '../app-config';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    LoginPage
+    LoginPage,
+    FeedbackModalPage
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,8 @@ import { MY_CONFIG_TOKEN, MY_CONFIG } from '../app-config';
   entryComponents: [
     MyApp,
     HomePage,
-    LoginPage
+    LoginPage,
+    FeedbackModalPage
   ],
   providers: [
     {provide: MY_CONFIG_TOKEN, useValue: MY_CONFIG},

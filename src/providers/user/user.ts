@@ -16,6 +16,7 @@ export class UserProvider {
 
   async login(user: User) {
     try {
+
       let authorization = btoa(`${user.username}:${user.password}`);
       let resp = await fetch(`${this.config.apiBase}openapi/reservations/authenticateUser`, {
         method: "POST",
